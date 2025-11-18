@@ -47,24 +47,11 @@ class User extends Authenticatable
         ];
     }
 
-    public function commentable()
-    {
-        return $this->morphMany(Comment::class, 'commentable');
 
-    }
 
     public function products()
     {
         return $this->hasMany(Product::class, 'created_by');
     }
 
-    public function posts()
-    {
-        return $this->hasMany(Post::class, 'created_by');
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class, 'created_by');
-    }
 }

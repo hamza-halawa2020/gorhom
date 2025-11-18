@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use App\Traits\TrackViews;
 
 class Product extends Model
 {
     use HasTranslations;
+    use TrackViews;
+
 
     protected $table = 'products';
 

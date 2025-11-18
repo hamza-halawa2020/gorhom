@@ -8,6 +8,11 @@ trait HasSlug
 {
     public function generateSlug($model, $title, $id = null)
     {
+
+        if (is_array($title) && isset($title['en'])) {
+            $title = $title['en'];
+        }
+
         $slug = Str::slug($title);
         $originalSlug = $slug;
         $count = 1;

@@ -321,7 +321,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user53@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user42@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -384,7 +384,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user36@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user77@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -479,7 +479,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 41,\n    \"discount\": 19,\n    \"price_after_discount\": 56,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 49,\n    \"discount\": 61,\n    \"price_after_discount\": 43,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
                             "options": []
                         }
                     }
@@ -542,7 +542,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 33,\n    \"discount\": 97,\n    \"price_after_discount\": 98,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 19,\n    \"discount\": 30,\n    \"price_after_discount\": 1,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
                             "options": []
                         }
                     }
@@ -637,7 +637,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"country_id sample value\",\n    \"city_id\": \"city_id sample value\",\n    \"cost\": \"cost sample value\"\n}",
+                            "raw": "{\n    \"title\": []\n}",
                             "options": []
                         }
                     }
@@ -700,7 +700,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"country_id sample value\",\n    \"city_id\": \"city_id sample value\",\n    \"cost\": \"cost sample value\"\n}",
+                            "raw": "{\n    \"title\": []\n}",
                             "options": []
                         }
                     }
@@ -953,7 +953,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"country_id\": \"country_id sample value\"\n}",
+                            "raw": "{\n    \"country_id\": \"country_id sample value\",\n    \"city_id\": \"city_id sample value\",\n    \"cost\": \"cost sample value\"\n}",
                             "options": []
                         }
                     }
@@ -1016,7 +1016,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"country_id\": \"country_id sample value\"\n}",
+                            "raw": "{\n    \"country_id\": \"country_id sample value\",\n    \"city_id\": \"city_id sample value\",\n    \"cost\": \"cost sample value\"\n}",
                             "options": []
                         }
                     }

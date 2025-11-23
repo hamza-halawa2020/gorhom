@@ -14,9 +14,11 @@ class StoreCountryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'country_id' => 'required',
-            'city_id' => 'required',
-            'cost' => 'required',
+
+            'title' => 'required|array',
+            'title.*' => 'required|string|max:255',
+
+          
         ];
     }
 }

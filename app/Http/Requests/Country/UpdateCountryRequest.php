@@ -14,9 +14,11 @@ class UpdateCountryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'country_id' => 'nullable',
-            'city_id' => 'nullable',
-            'cost' => 'nullable',
+
+            'title' => 'required|array',
+            'title.*' => 'required|string|max:255',
+
+         
         ];
     }
 }

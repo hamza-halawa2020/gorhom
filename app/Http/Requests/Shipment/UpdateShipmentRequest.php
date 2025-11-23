@@ -14,9 +14,9 @@ class UpdateShipmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|array',
-            'title.*' => 'required|string|max:255',
-            'country_id' => 'nullable|exists:countries,id',
+               'country_id' => 'nullable',
+            'city_id' => 'nullable',
+            'cost' => 'nullable',
         ];
     }
 }

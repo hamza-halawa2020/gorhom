@@ -1,6 +1,6 @@
 {
     "info": {
-        "name": "Laravel",
+        "name": "Gorhom",
         "description": "API Documentation",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -33,44 +33,6 @@
                                 "api",
                                 "user"
                             ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "contact",
-            "item": [
-                {
-                    "name": "[POST] api/contact",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json",
-                                "type": "text"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/contact",
-                            "host": [
-                                "{{base_url}}"
-                            ],
-                            "path": [
-                                "api",
-                                "contact"
-                            ]
-                        },
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"passport\": \"passport sample value\",\n    \"address\": \"address sample value\",\n    \"email\": \"user17@example.com\",\n    \"phone\": \"phone sample value\",\n    \"interest\": \"interest sample value\",\n    \"investment_amount\": 309,\n    \"message\": \"message sample value\"\n}",
-                            "options": []
                         }
                     }
                 }
@@ -201,7 +163,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
+                            "raw": "{\n    \"name\": [],\n    \"parent_id\": \"parent_id sample value\"\n}",
                             "options": []
                         }
                     }
@@ -264,7 +226,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
+                            "raw": "{\n    \"name\": [],\n    \"parent_id\": \"parent_id sample value\"\n}",
                             "options": []
                         }
                     }
@@ -294,164 +256,6 @@
                                 "api",
                                 "categories",
                                 "{category}"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "tags",
-            "item": [
-                {
-                    "name": "[GET] api/tags",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json",
-                                "type": "text"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/tags",
-                            "host": [
-                                "{{base_url}}"
-                            ],
-                            "path": [
-                                "api",
-                                "tags"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "[POST] api/tags",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json",
-                                "type": "text"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/tags",
-                            "host": [
-                                "{{base_url}}"
-                            ],
-                            "path": [
-                                "api",
-                                "tags"
-                            ]
-                        },
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
-                            "options": []
-                        }
-                    }
-                },
-                {
-                    "name": "[GET] api/tags/{tag}",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json",
-                                "type": "text"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/tags/{tag}",
-                            "host": [
-                                "{{base_url}}"
-                            ],
-                            "path": [
-                                "api",
-                                "tags",
-                                "{tag}"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "[PUT] api/tags/{tag}",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json",
-                                "type": "text"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/tags/{tag}",
-                            "host": [
-                                "{{base_url}}"
-                            ],
-                            "path": [
-                                "api",
-                                "tags",
-                                "{tag}"
-                            ]
-                        },
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
-                            "options": []
-                        }
-                    }
-                },
-                {
-                    "name": "[DELETE] api/tags/{tag}",
-                    "request": {
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json",
-                                "type": "text"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/tags/{tag}",
-                            "host": [
-                                "{{base_url}}"
-                            ],
-                            "path": [
-                                "api",
-                                "tags",
-                                "{tag}"
                             ]
                         }
                     }
@@ -517,7 +321,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user54@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user53@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -580,7 +384,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user53@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user36@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -617,10 +421,10 @@
             ]
         },
         {
-            "name": "posts",
+            "name": "products",
             "item": [
                 {
-                    "name": "[GET] api/posts",
+                    "name": "[GET] api/products",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -636,19 +440,19 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/posts",
+                            "raw": "{{base_url}}/api/products",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "posts"
+                                "products"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "[POST] api/posts",
+                    "name": "[POST] api/products",
                     "request": {
                         "method": "POST",
                         "header": [
@@ -664,24 +468,24 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/posts",
+                            "raw": "{{base_url}}/api/products",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "posts"
+                                "products"
                             ]
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"title sample value\",\n    \"slug\": \"slug sample value\",\n    \"content\": \"content sample value\",\n    \"image\": \"image sample value\",\n    \"files\": [],\n    \"created_by\": \"created_by sample value\"\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 41,\n    \"discount\": 19,\n    \"price_after_discount\": 56,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
                             "options": []
                         }
                     }
                 },
                 {
-                    "name": "[GET] api/posts/{post}",
+                    "name": "[GET] api/products/{product}",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -697,20 +501,20 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/posts/{post}",
+                            "raw": "{{base_url}}/api/products/{product}",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "posts",
-                                "{post}"
+                                "products",
+                                "{product}"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "[PUT] api/posts/{post}",
+                    "name": "[PUT] api/products/{product}",
                     "request": {
                         "method": "PUT",
                         "header": [
@@ -726,25 +530,25 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/posts/{post}",
+                            "raw": "{{base_url}}/api/products/{product}",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "posts",
-                                "{post}"
+                                "products",
+                                "{product}"
                             ]
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"title sample value\",\n    \"slug\": \"slug sample value\",\n    \"content\": \"content sample value\",\n    \"image\": \"image sample value\",\n    \"files\": [],\n    \"created_by\": \"created_by sample value\"\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 33,\n    \"discount\": 97,\n    \"price_after_discount\": 98,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
                             "options": []
                         }
                     }
                 },
                 {
-                    "name": "[DELETE] api/posts/{post}",
+                    "name": "[DELETE] api/products/{product}",
                     "request": {
                         "method": "DELETE",
                         "header": [
@@ -760,14 +564,14 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/posts/{post}",
+                            "raw": "{{base_url}}/api/products/{product}",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "posts",
-                                "{post}"
+                                "products",
+                                "{product}"
                             ]
                         }
                     }
@@ -775,10 +579,10 @@
             ]
         },
         {
-            "name": "comments",
+            "name": "countries",
             "item": [
                 {
-                    "name": "[GET] api/comments",
+                    "name": "[GET] api/countries",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -794,19 +598,19 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/comments",
+                            "raw": "{{base_url}}/api/countries",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "comments"
+                                "countries"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "[POST] api/comments",
+                    "name": "[POST] api/countries",
                     "request": {
                         "method": "POST",
                         "header": [
@@ -822,24 +626,24 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/comments",
+                            "raw": "{{base_url}}/api/countries",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "comments"
+                                "countries"
                             ]
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"comment\": \"comment sample value\",\n    \"commentable_type\": \"commentable_type sample value\",\n    \"commentable_id\": \"commentable_id sample value\",\n    \"created_by\": \"created_by sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
+                            "raw": "{\n    \"country_id\": \"country_id sample value\",\n    \"city_id\": \"city_id sample value\",\n    \"cost\": \"cost sample value\"\n}",
                             "options": []
                         }
                     }
                 },
                 {
-                    "name": "[GET] api/comments/{comment}",
+                    "name": "[GET] api/countries/{country}",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -855,20 +659,20 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/comments/{comment}",
+                            "raw": "{{base_url}}/api/countries/{country}",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "comments",
-                                "{comment}"
+                                "countries",
+                                "{country}"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "[PUT] api/comments/{comment}",
+                    "name": "[PUT] api/countries/{country}",
                     "request": {
                         "method": "PUT",
                         "header": [
@@ -884,25 +688,25 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/comments/{comment}",
+                            "raw": "{{base_url}}/api/countries/{country}",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "comments",
-                                "{comment}"
+                                "countries",
+                                "{country}"
                             ]
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"comment\": \"comment sample value\",\n    \"commentable_type\": \"commentable_type sample value\",\n    \"commentable_id\": \"commentable_id sample value\",\n    \"created_by\": \"created_by sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
+                            "raw": "{\n    \"country_id\": \"country_id sample value\",\n    \"city_id\": \"city_id sample value\",\n    \"cost\": \"cost sample value\"\n}",
                             "options": []
                         }
                     }
                 },
                 {
-                    "name": "[DELETE] api/comments/{comment}",
+                    "name": "[DELETE] api/countries/{country}",
                     "request": {
                         "method": "DELETE",
                         "header": [
@@ -918,14 +722,330 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{base_url}}/api/comments/{comment}",
+                            "raw": "{{base_url}}/api/countries/{country}",
                             "host": [
                                 "{{base_url}}"
                             ],
                             "path": [
                                 "api",
-                                "comments",
-                                "{comment}"
+                                "countries",
+                                "{country}"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "cities",
+            "item": [
+                {
+                    "name": "[GET] api/cities",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cities",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cities"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[POST] api/cities",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cities",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cities"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": [],\n    \"country_id\": \"country_id sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[GET] api/cities/{city}",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cities/{city}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cities",
+                                "{city}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[PUT] api/cities/{city}",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cities/{city}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cities",
+                                "{city}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": [],\n    \"country_id\": \"country_id sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[DELETE] api/cities/{city}",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cities/{city}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cities",
+                                "{city}"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "shipments",
+            "item": [
+                {
+                    "name": "[GET] api/shipments",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/shipments",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "shipments"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[POST] api/shipments",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/shipments",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "shipments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": [],\n    \"country_id\": \"country_id sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[GET] api/shipments/{shipment}",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/shipments/{shipment}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "shipments",
+                                "{shipment}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[PUT] api/shipments/{shipment}",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/shipments/{shipment}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "shipments",
+                                "{shipment}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": [],\n    \"country_id\": \"country_id sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[DELETE] api/shipments/{shipment}",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/shipments/{shipment}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "shipments",
+                                "{shipment}"
                             ]
                         }
                     }
@@ -1027,7 +1147,7 @@
     "variable": [
         {
             "key": "base_url",
-            "value": "http://localhost"
+            "value": "http://gorhom.test"
         }
     ]
 }

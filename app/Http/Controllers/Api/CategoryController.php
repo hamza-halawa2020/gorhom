@@ -16,7 +16,6 @@ class CategoryController extends BaseController
     {
         $this->middleware('auth:sanctum')->only('store', 'update', 'destroy');
         $this->middleware('limitReq');
-
     }
 
     use ApiResponse;

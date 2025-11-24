@@ -20,8 +20,13 @@ class City extends Model
     protected $fillable = [
         'title',
         'country_id',
-
+        'created_by',
     ];
+
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 
     public function country()
     {

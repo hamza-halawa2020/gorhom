@@ -13,11 +13,23 @@ class Order extends Model
         'email',
         'phone',
         'address',
+        'client_id',
         'shipment_id',
         'total_amount',
         'status',
         'payment_method',
+        'status_chnged_by',
+
     ];
+
+    public function statusChngedBy()
+    {
+        return $this->belongsTo(User::class, 'status_chnged_by');
+    }
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
 
     public function shipment()
     {

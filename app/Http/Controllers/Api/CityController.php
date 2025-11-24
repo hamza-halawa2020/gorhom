@@ -8,6 +8,7 @@ use App\Http\Resources\CityResource;
 use App\Models\City;
 use App\Traits\ApiResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class CityController extends BaseController
 {
@@ -29,6 +30,7 @@ class CityController extends BaseController
     public function store(StoreCityRequest $request)
     {
         $data = $request->validated();
+        $data['created_by'] = Auth::id();
 
         $city = City::create($data);
 

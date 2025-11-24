@@ -8,6 +8,7 @@ use App\Http\Resources\ShipmentResource;
 use App\Models\Shipment;
 use App\Traits\ApiResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class ShipmentController extends BaseController
 {
@@ -28,6 +29,7 @@ class ShipmentController extends BaseController
     public function store(StoreShipmentRequest $request)
     {
         $data = $request->validated();
+        $data['created_by'] = Auth::id();
 
         $shipment = Shipment::create($data);
         return $this->success(new ShipmentResource($shipment), 'Shipment created', 201);

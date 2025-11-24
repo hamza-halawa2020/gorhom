@@ -12,7 +12,14 @@ class Shipment extends Model
         'country_id',
         'city_id',
         'cost',
+        'created_by',
+
     ];
+
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 
     public function country()
     {

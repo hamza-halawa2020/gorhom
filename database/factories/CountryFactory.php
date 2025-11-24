@@ -25,6 +25,7 @@ class CountryFactory extends Factory
 
         return [
             'title' => json_encode($country),
+            'created_by' => 1,
         ];
     }
 }

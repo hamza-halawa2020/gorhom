@@ -45,6 +45,8 @@ class CityFactory extends Factory
         return [
             'title' => json_encode($city),
             'country_id' => 1, 
+            'created_by' => 1,
+
         ];
     }
 }

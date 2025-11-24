@@ -8,6 +8,7 @@ use App\Http\Resources\CountryResource;
 use App\Models\Country;
 use App\Traits\ApiResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class CountryController extends BaseController
 {
@@ -29,6 +30,7 @@ class CountryController extends BaseController
     public function store(StoreCountryRequest $request)
     {
         $data = $request->validated();
+        $data['created_by'] = Auth::id();
 
         $country = Country::create($data);
 

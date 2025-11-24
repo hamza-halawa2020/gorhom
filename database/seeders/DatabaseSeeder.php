@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Product;
+use App\Models\Shipment;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,10 +29,22 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ]);
 
+        Category::factory()->count(10)->create();
+
+        $parent = Category::factory()->create();
+
+        Category::factory()->count(5)->withParent($parent->id)->create();
+
         Country::factory(1)->create()->each(function ($country) {
             City::factory(29)->create([
                 'country_id' => $country->id,
             ]);
         });
+
+        Shipment::factory()->count(40)->create();
+
+
+        Product::factory()->count(50)->create();
+
     }
 }

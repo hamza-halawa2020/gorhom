@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\TrackViews;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
     use HasTranslations;
     use TrackViews;
+    use HasFactory;
 
 
     protected $table = 'products';

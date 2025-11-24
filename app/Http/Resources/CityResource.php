@@ -13,6 +13,7 @@ class CityResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->getTranslation('title', $locale),
+            'country' => new CountryResource($this->whenLoaded('country')),
         ];
     }
 }

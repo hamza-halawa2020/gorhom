@@ -8,11 +8,12 @@ class ShipmentResource extends JsonResource
 {
     public function toArray($request)
     {
-        $locale = $request->get('lang', 'en');
 
         return [
             'id' => $this->id,
-            'title' => $this->getTranslation('title', $locale),
+            'cost' => $this->cost,
+            'country' => new CountryResource($this->whenLoaded('country')),
+            'city' => new CityResource($this->whenLoaded('city')),
         ];
     }
 }

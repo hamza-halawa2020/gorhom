@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('title');
             $table->string('slug');
             $table->json('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->decimal('price_before_discount', 10, 2)->default(0);
             $table->decimal('discount', 10, 2)->default(0);
             $table->decimal('price_after_discount', 10, 2)->default(0);

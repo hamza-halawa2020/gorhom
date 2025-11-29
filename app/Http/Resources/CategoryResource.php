@@ -13,7 +13,10 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->getTranslation('name', $locale),
+            'image' => $this->image,
             'children' => CategoryResource::collection($this->whenLoaded('children')),
+            'products' => ProductResource::collection($this->whenLoaded('products')),
+
         ];
     }
 }

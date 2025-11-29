@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->foreignIdFor(Category::class,'parent_id')->nullable();
+            $table->string('image')->nullable();
             $table->foreignIdFor(User::class,'created_by')->nullable();
             $table->timestamps();
         });

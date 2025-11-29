@@ -8,12 +8,12 @@ class ReviewResource extends JsonResource
 {
     public function toArray($request)
     {
-        $locale = $request->get('lang', 'en');
-
         return [
             'id' => $this->id,
-            'name' => $this->getTranslation('name', $locale),
-            'children' => CategoryResource::collection($this->whenLoaded('children')),
+            'review' => $this->review,
+            'name' => $this->name,
+            'rate' => $this->rate,
+            'product' => $this->whenLoaded('product'),
         ];
     }
 }

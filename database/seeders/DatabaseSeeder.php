@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Shipment;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -41,10 +42,15 @@ class DatabaseSeeder extends Seeder
             ]);
         });
 
+        Product::factory(30)->create()->each(function ($product) {
+            Review::factory(rand(2, 3))->create([
+                'product_id' => $product->id,
+            ]);
+        });
+
         Shipment::factory()->count(40)->create();
 
-
-        Product::factory()->count(50)->create();
+        // Product::factory()->count(50)->create();
 
     }
 }

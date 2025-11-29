@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->json('review');
-            $table->json('name');
+            $table->string('review');
+            $table->string('name');
             $table->decimal('rate', 10, 2)->default(0);
             $table->foreignIdFor(Product::class, 'product_id');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('reviews');
     }
 };

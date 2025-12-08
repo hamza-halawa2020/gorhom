@@ -10,6 +10,17 @@ class CategoryResource extends JsonResource
     {
         $locale = $request->get('lang', 'en');
 
+        if ($locale === 'all') {
+            return [
+                'id' => $this->id,
+                'name' => $this->getTranslations('name'),
+                'image' => $this->image,
+                'children' => CategoryResource::collection($this->whenLoaded('children')),
+                'products' => ProductResource::collection($this->whenLoaded('products')),
+
+            ];
+        }
+
         return [
             'id' => $this->id,
             'name' => $this->getTranslation('name', $locale),

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('rate', 10, 2)->default(0);
             $table->foreignIdFor(Product::class, 'product_id');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

@@ -3,8 +3,10 @@
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\CouponController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\ShipmentController;
@@ -47,3 +49,16 @@ Route::apiResource('views', ViewController::class)->only(['index', 'show', 'dest
 Route::apiResource('coupons', CouponController::class);
 Route::post('coupons/validate', [CouponController::class, 'validate']);
 Route::get('coupons/automatic/first-order', [CouponController::class, 'getAutomaticCoupon']);
+
+// clients
+Route::apiResource('clients', ClientController::class);
+Route::get('clients/phone/{phone}', [ClientController::class, 'getByPhone']);
+Route::get('clients/{client}/stats', [ClientController::class, 'stats']);
+
+// orders
+Route::get('orders', [OrderController::class, 'index']);
+Route::post('orders', [OrderController::class, 'store']);
+Route::get('orders/{order}', [OrderController::class, 'show']);
+Route::patch('orders/{order}/status', [OrderController::class, 'updateStatus']);
+Route::get('orders/client/{phone}', [OrderController::class, 'getClientOrders']);
+Route::get('orders-export', [OrderController::class, 'exportPendingOrders']);

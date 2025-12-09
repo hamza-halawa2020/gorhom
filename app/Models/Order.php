@@ -9,9 +9,6 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $fillable = [
-        'name',
-        'email',
-        'phone',
         'address',
         'client_id',
         'shipment_id',
@@ -22,7 +19,6 @@ class Order extends Model
         'status',
         'payment_method',
         'status_chnged_by',
-
     ];
 
     public function statusChngedBy()
@@ -42,5 +38,10 @@ class Order extends Model
     public function coupon()
     {
         return $this->belongsTo(Coupon::class, 'coupon_id');
+    }
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id');
     }
 }

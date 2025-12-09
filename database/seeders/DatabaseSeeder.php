@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\Review;
 use App\Models\Shipment;
@@ -49,6 +50,10 @@ class DatabaseSeeder extends Seeder
         });
 
         Shipment::factory()->count(40)->create();
+
+        Coupon::factory()->count(2)->firstOrder()->create();
+       
+        Coupon::factory()->count(10)->create();
 
         // Product::factory()->count(50)->create();
 

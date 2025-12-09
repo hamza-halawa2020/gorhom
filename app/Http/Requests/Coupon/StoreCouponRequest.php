@@ -16,7 +16,17 @@ class StoreCouponRequest extends FormRequest
         return [
             'code' => 'required|string|max:255|unique:coupons,code',
             'type' => 'required|in:fixed,percentage',
-            'value' => 'required|numeric|min:0',
+            // 'value' => 'required|numeric|min:0',
+            'value' => [
+                'required',
+                'numeric',
+                'min:0',
+                function ($attribute, $value, $fail) {
+                    if ($this->type === 'percentage' && $value > 100) {
+                        $fail('The discount percentage cannot exceed 100%.');
+                    }
+                },
+            ],
             'max_discount' => 'nullable|numeric|min:0',
             'min_order_amount' => 'nullable|numeric|min:0',
             'is_automatic' => 'nullable|boolean',

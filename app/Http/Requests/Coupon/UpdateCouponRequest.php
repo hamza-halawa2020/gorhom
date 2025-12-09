@@ -18,7 +18,18 @@ class UpdateCouponRequest extends FormRequest
         return [
             'code' => 'sometimes|string|max:255|unique:coupons,code,' . $couponId,
             'type' => 'sometimes|in:fixed,percentage',
-            'value' => 'sometimes|numeric|min:0',
+            // 'value' => 'sometimes|numeric|min:0',
+            'value' => [
+                'sometimes',
+                'numeric',
+                'min:0',
+                function ($attribute, $value, $fail) {
+                    if ($this->type === 'percentage' && $value > 100) {
+                        $fail('The discount percentage cannot exceed 100%.');
+                    }
+                }
+            ],
+
             'max_discount' => 'nullable|numeric|min:0',
             'min_order_amount' => 'nullable|numeric|min:0',
             'is_automatic' => 'nullable|boolean',

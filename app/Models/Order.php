@@ -15,7 +15,10 @@ class Order extends Model
         'address',
         'client_id',
         'shipment_id',
+        'coupon_id',
         'total_amount',
+        'discount_amount',
+        'final_amount',
         'status',
         'payment_method',
         'status_chnged_by',
@@ -34,5 +37,10 @@ class Order extends Model
     public function shipment()
     {
         return $this->belongsTo(Shipment::class, 'shipment_id');
+    }
+
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class, 'coupon_id');
     }
 }

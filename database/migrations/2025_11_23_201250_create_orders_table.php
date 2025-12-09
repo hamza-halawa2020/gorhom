@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Client;
+use App\Models\Coupon;
 use App\Models\Shipment;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -18,13 +19,14 @@ return new class extends Migration
             $table->id();
             $table->string('address')->nullable();
             $table->foreignIdFor(Shipment::class, 'shipment_id');
+            $table->foreignIdFor(Coupon::class, 'coupon_id')->nullable();
             $table->foreignIdFor(Client::class, 'client_id');
             $table->decimal('total_amount', 10, 2)->default(0);
+            $table->decimal('discount_amount', 10, 2)->default(0);
+            $table->decimal('final_amount', 10, 2)->default(0);
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
-            $table->foreignIdFor(User::class,'status_chnged_by');
-
+            $table->foreignIdFor(User::class, 'status_chnged_by');
             $table->enum('payment_method', ['cash_on_delivery', 'visa', 'vodafone_cash'])->default('cash_on_delivery');
-
             $table->timestamps();
         });
     }

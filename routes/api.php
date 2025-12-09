@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\ShipmentController;
@@ -41,3 +42,8 @@ Route::apiResource('reviews', ReviewController::class);
 
 // views
 Route::apiResource('views', ViewController::class)->only(['index', 'show', 'destroy']);
+
+// coupons
+Route::apiResource('coupons', CouponController::class);
+Route::post('coupons/validate', [CouponController::class, 'validate']);
+Route::get('coupons/automatic/first-order', [CouponController::class, 'getAutomaticCoupon']);

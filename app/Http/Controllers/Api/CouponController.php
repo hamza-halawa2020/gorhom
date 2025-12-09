@@ -6,7 +6,9 @@ use App\Http\Requests\Coupon\StoreCouponRequest;
 use App\Http\Requests\Coupon\UpdateCouponRequest;
 use App\Http\Requests\Coupon\ValidateCouponRequest;
 use App\Http\Resources\CouponResource;
+use App\Models\Client;
 use App\Models\Coupon;
+use App\Models\Order;
 use App\Traits\ApiResponse;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
@@ -96,13 +98,13 @@ class CouponController extends BaseController
             return $this->error('Customer ID is required.', 400);
         }
 
-        $client = \App\Models\Client::find($clientId);
+        $client = Client::find($clientId);
 
         if (! $client) {
             return $this->error('Customer not found.', 404);
         }
 
-        $hasOrders = \App\Models\Order::where('client_id', $clientId)
+        $hasOrders = Order::where('client_id', $clientId)
             ->where('status', 'completed')
             ->exists();
 

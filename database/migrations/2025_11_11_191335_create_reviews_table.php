@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('review');
             $table->string('name');
-            $table->decimal('rate', 10, 2)->default(0);
+            $table->unsignedTinyInteger('rate')->default(1);
             $table->foreignIdFor(Product::class, 'product_id');
             $table->enum('status',['rejected','pending','approved'])->default('pending');
             $table->timestamps();

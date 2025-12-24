@@ -32,4 +32,9 @@ class City extends Model
     {
         return $this->belongsTo(Country::class, 'country_id');
     }
+    
+    public function shipments()
+    {
+        return $this->hasMany(Shipment::class, 'city_id');
+    }
 }

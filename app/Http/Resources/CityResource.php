@@ -15,6 +15,7 @@ class CityResource extends JsonResource
             return [
                 'id' => $this->id,
                 'title' => $this->getTranslations('title'),
+                'shipments' => ShipmentResource::collection($this->whenLoaded('shipments')),
                 
                 'country' => new CountryResource($this->whenLoaded('country')),
             ];

@@ -92,11 +92,10 @@ class OrderController extends BaseController
                     }
                 }
             } else {
-                $hasCompletedOrders = Order::where('client_id', $client->id)
-                    ->where('status', 'completed')
+                $hasPreviousOrders = Order::where('client_id', $client->id)
                     ->exists();
 
-                if (! $hasCompletedOrders) {
+                if (! $hasPreviousOrders) {
                     $automaticCoupon = Coupon::where('is_automatic', true)
                         ->where('automatic_type', 'first_order')
                         ->where('is_active', true)

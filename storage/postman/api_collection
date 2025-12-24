@@ -130,7 +130,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": [],\n    \"parent_id\": \"parent_id sample value\"\n}",
+                            "raw": "{\n    \"name\": [],\n    \"image\": \"image sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
                             "options": []
                         }
                     }
@@ -193,7 +193,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": [],\n    \"parent_id\": \"parent_id sample value\"\n}",
+                            "raw": "{\n    \"name\": [],\n    \"image\": \"image sample value\",\n    \"parent_id\": \"parent_id sample value\"\n}",
                             "options": []
                         }
                     }
@@ -288,7 +288,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user51@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user56@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -351,7 +351,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user14@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user53@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -446,7 +446,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 17,\n    \"discount\": 29,\n    \"price_after_discount\": 70,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 93,\n    \"discount\": 30,\n    \"price_after_discount\": 31,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
                             "options": []
                         }
                     }
@@ -509,7 +509,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 4,\n    \"discount\": 37,\n    \"price_after_discount\": 43,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 49,\n    \"discount\": 24,\n    \"price_after_discount\": 86,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
                             "options": []
                         }
                     }
@@ -1020,6 +1020,164 @@
             ]
         },
         {
+            "name": "reviews",
+            "item": [
+                {
+                    "name": "[GET] api/reviews",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "reviews"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[POST] api/reviews",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "reviews"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"review\": \"review sample value\",\n    \"name\": \"name sample value\",\n    \"rate\": 3,\n    \"product_id\": \"product_id sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[GET] api/reviews/{review}",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews/{review}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "reviews",
+                                "{review}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[PUT] api/reviews/{review}",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews/{review}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "reviews",
+                                "{review}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"review\": \"review sample value\",\n    \"status\": \"status sample value\",\n    \"name\": \"name sample value\",\n    \"rate\": 5,\n    \"product_id\": \"product_id sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[DELETE] api/reviews/{review}",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews/{review}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "reviews",
+                                "{review}"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
             "name": "views",
             "item": [
                 {
@@ -1104,6 +1262,684 @@
                                 "api",
                                 "views",
                                 "{view}"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "coupons",
+            "item": [
+                {
+                    "name": "[GET] api/coupons",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/coupons",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "coupons"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[POST] api/coupons",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/coupons",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "coupons"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"code\": \"code sample value\",\n    \"type\": \"type sample value\",\n    \"value\": 48,\n    \"max_discount\": 49,\n    \"min_order_amount\": 82,\n    \"is_automatic\": false,\n    \"automatic_type\": \"automatic_type sample value\",\n    \"usage_limit\": \"usage_limit sample value\",\n    \"usage_per_user\": \"usage_per_user sample value\",\n    \"is_active\": false,\n    \"starts_at\": \"starts_at sample value\",\n    \"expires_at\": \"expires_at sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[GET] api/coupons/{coupon}",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/coupons/{coupon}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "coupons",
+                                "{coupon}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[PUT] api/coupons/{coupon}",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/coupons/{coupon}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "coupons",
+                                "{coupon}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[DELETE] api/coupons/{coupon}",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/coupons/{coupon}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "coupons",
+                                "{coupon}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "validate",
+                    "item": [
+                        {
+                            "name": "[POST] api/coupons/validate",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{base_url}}/api/coupons/validate",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "coupons",
+                                        "validate"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"code\": \"code sample value\",\n    \"order_amount\": 27,\n    \"client_id\": \"client_id sample value\"\n}",
+                                    "options": []
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "automatic",
+                    "item": [
+                        {
+                            "name": "first-order",
+                            "item": [
+                                {
+                                    "name": "[GET] api/coupons/automatic/first-order",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{base_url}}/api/coupons/automatic/first-order",
+                                            "host": [
+                                                "{{base_url}}"
+                                            ],
+                                            "path": [
+                                                "api",
+                                                "coupons",
+                                                "automatic",
+                                                "first-order"
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "clients",
+            "item": [
+                {
+                    "name": "[GET] api/clients",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clients",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clients"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[POST] api/clients",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clients",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clients"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"phone\": \"phone sample value\",\n    \"email\": \"user41@example.com\"\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[GET] api/clients/{client}",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clients/{client}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clients",
+                                "{client}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[PUT] api/clients/{client}",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clients/{client}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clients",
+                                "{client}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[DELETE] api/clients/{client}",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/clients/{client}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clients",
+                                "{client}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "phone",
+                    "item": [
+                        {
+                            "name": "[GET] api/clients/phone/{phone}",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{base_url}}/api/clients/phone/{phone}",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "clients",
+                                        "phone",
+                                        "{phone}"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "",
+                    "item": [
+                        {
+                            "name": "stats",
+                            "item": [
+                                {
+                                    "name": "[GET] api/clients/{client}/stats",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{base_url}}/api/clients/{client}/stats",
+                                            "host": [
+                                                "{{base_url}}"
+                                            ],
+                                            "path": [
+                                                "api",
+                                                "clients",
+                                                "{client}",
+                                                "stats"
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "orders",
+            "item": [
+                {
+                    "name": "[GET] api/orders",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/orders",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "orders"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "[POST] api/orders",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/orders",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "orders"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"phone\": \"phone sample value\",\n    \"email\": \"user98@example.com\",\n    \"address\": \"address sample value\",\n    \"shipment_id\": \"shipment_id sample value\",\n    \"coupon_code\": \"coupon_code sample value\",\n    \"payment_method\": \"payment_method sample value\",\n    \"items\": [],\n    \"items.product_id\": [],\n    \"items.quantity\": []\n}",
+                            "options": []
+                        }
+                    }
+                },
+                {
+                    "name": "[GET] api/orders/{order}",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/orders/{order}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "orders",
+                                "{order}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "",
+                    "item": [
+                        {
+                            "name": "status",
+                            "item": [
+                                {
+                                    "name": "[PATCH] api/orders/{order}/status",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{base_url}}/api/orders/{order}/status",
+                                            "host": [
+                                                "{{base_url}}"
+                                            ],
+                                            "path": [
+                                                "api",
+                                                "orders",
+                                                "{order}",
+                                                "status"
+                                            ]
+                                        },
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"status\": \"status sample value\"\n}",
+                                            "options": []
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "client",
+                    "item": [
+                        {
+                            "name": "[GET] api/orders/client/{phone}",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{base_url}}/api/orders/client/{phone}",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "orders",
+                                        "client",
+                                        "{phone}"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "orders-export",
+            "item": [
+                {
+                    "name": "[GET] api/orders-export",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/orders-export",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "orders-export"
                             ]
                         }
                     }

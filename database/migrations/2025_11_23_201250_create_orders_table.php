@@ -25,7 +25,7 @@ return new class extends Migration
             $table->decimal('discount_amount', 10, 2)->default(0);
             $table->decimal('final_amount', 10, 2)->default(0);
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
-            $table->foreignIdFor(User::class, 'status_chnged_by');
+            $table->foreignIdFor(User::class, 'status_chnged_by')->nullable();
             $table->enum('payment_method', ['cash_on_delivery', 'visa', 'vodafone_cash'])->default('cash_on_delivery');
             $table->timestamps();
         });

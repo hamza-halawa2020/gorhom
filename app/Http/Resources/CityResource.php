@@ -15,9 +15,8 @@ class CityResource extends JsonResource
             return [
                 'id' => $this->id,
                 'title' => $this->getTranslations('title'),
-                'shipments' => ShipmentResource::collection($this->whenLoaded('shipments')),
-                
                 'country' => new CountryResource($this->whenLoaded('country')),
+                'shipments' => new ShipmentResource($this->whenLoaded('shipments')),
             ];
         }
 
@@ -25,6 +24,8 @@ class CityResource extends JsonResource
             'id' => $this->id,
             'title' => $this->getTranslation('title', $locale),
             'country' => new CountryResource($this->whenLoaded('country')),
+            'shipment' => new ShipmentResource($this->whenLoaded('shipment')),
+
         ];
     }
 }

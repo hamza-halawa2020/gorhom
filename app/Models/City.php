@@ -33,8 +33,8 @@ class City extends Model
         return $this->belongsTo(Country::class, 'country_id');
     }
     
-    public function shipments()
+    public function shipment()
     {
-        return $this->hasMany(Shipment::class, 'city_id');
+        return $this->hasOne(Shipment::class, 'city_id')->Latest();
     }
 }

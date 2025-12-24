@@ -22,7 +22,7 @@ class CityController extends BaseController
 
     public function index()
     {
-        $cities = City::with('country','shipments')->get();
+        $cities = City::with('country','shipment')->get();
 
         return $this->success(CityResource::collection($cities));
     }
@@ -39,7 +39,7 @@ class CityController extends BaseController
 
     public function show(City $city)
     {
-        $city->load('country','shipments');
+        $city->load('country','shipment');
 
         return $this->success(new CityResource($city));
     }

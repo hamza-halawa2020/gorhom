@@ -2,10 +2,13 @@
 
 namespace App\Http\Requests\Coupon;
 
+use App\Traits\BilingualValidation;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCouponRequest extends FormRequest
 {
+    use BilingualValidation;
+
     public function authorize(): bool
     {
         return true;
@@ -18,18 +21,7 @@ class UpdateCouponRequest extends FormRequest
         return [
             'code' => 'sometimes|string|max:255|unique:coupons,code,' . $couponId,
             'type' => 'sometimes|in:fixed,percentage',
-            // 'value' => 'sometimes|numeric|min:0',
-            'value' => [
-                'sometimes',
-                'numeric',
-                'min:0',
-                function ($attribute, $value, $fail) {
-                    if ($this->type === 'percentage' && $value > 100) {
-                        $fail('The discount percentage cannot exceed 100%.');
-                    }
-                }
-            ],
-
+            'value' => 'sometimes|numeric|min:0',
             'max_discount' => 'nullable|numeric|min:0',
             'min_order_amount' => 'nullable|numeric|min:0',
             'is_automatic' => 'nullable|boolean',
@@ -42,4 +34,21 @@ class UpdateCouponRequest extends FormRequest
         ];
     }
 
+    protected function bilingualMessages(): array
+    {
+        return [
+            'code.unique' => [
+                'ar' => 'كود الكوبون موجود بالفعل',
+                'en' => 'Coupon code already exists'
+            ],
+            'type.in' => [
+                'ar' => 'نوع الكوبون يجب أن يكون fixed أو percentage',
+                'en' => 'Coupon type must be fixed or percentage'
+            ],
+            'expires_at.after' => [
+                'ar' => 'تاريخ الانتهاء يجب أن يكون بعد تاريخ البداية',
+                'en' => 'Expiry date must be after start date'
+            ],
+        ];
+    }
 }

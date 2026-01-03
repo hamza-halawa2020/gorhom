@@ -15,7 +15,7 @@ class ReviewController extends BaseController
 
     public function __construct()
     {
-        $this->middleware('auth:sanctum')->only('index','store','show','update','destroy');
+        $this->middleware('auth:sanctum')->only('index','show','update','destroy');
         $this->middleware('limitReq');
     }
 

@@ -136,7 +136,7 @@ class CouponController extends BaseController
         $isFirstOrder = true;
 
         if ($client) {
-            $hasOrders = Order::where('client_id', $client->id)->where('status', 'completed')->exists();
+            $hasOrders = Order::where('client_id', $client->id)->exists();
             
             if ($hasOrders) {
                 $isFirstOrder = false;

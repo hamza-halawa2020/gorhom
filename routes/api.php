@@ -40,6 +40,7 @@ Route::apiResource('cities', CityController::class);
 Route::apiResource('shipments', ShipmentController::class);
 
 // reviews
+Route::get('reviews/accepted', [ReviewController::class, 'getAcceptedReviews']);
 Route::apiResource('reviews', ReviewController::class);
 
 // views

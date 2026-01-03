@@ -66,7 +66,10 @@ class ProductController extends BaseController
     public function show(Product $product)
     {
         $product->recordView();
-        $product->load(['files',  'views','reviews','category']);
+
+        $product->load(['files','views','category','reviews' => function ($q) {
+            $q->where('status', 'approved');
+        }]);
 
         return $this->success(new ProductResource($product));
     }

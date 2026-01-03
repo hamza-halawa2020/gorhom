@@ -15,13 +15,19 @@ class ReviewController extends BaseController
 
     public function __construct()
     {
-        // $this->middleware('auth:sanctum')->only('store', 'update', 'destroy');
+        $this->middleware('auth:sanctum')->only('index','store','show','update','destroy');
         $this->middleware('limitReq');
     }
 
     public function index()
     {
         $reviews = Review::with('product')->get();
+        return $this->success(ReviewResource::collection($reviews));
+    }
+
+    public function getAcceptedReviews()
+    {
+        $reviews = Review::where('status', 'approved')->with('product')->get();
         return $this->success(ReviewResource::collection($reviews));
     }
 

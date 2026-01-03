@@ -75,6 +75,7 @@ class OrderController extends BaseController
             }
 
             $shipment = Shipment::findOrFail($data['shipment_id']);
+            $productsTotal = $totalAmount;
             $totalAmount += $shipment->cost;
 
             $discountAmount = 0;
@@ -85,7 +86,7 @@ class OrderController extends BaseController
                 $coupon = Coupon::where('code', $data['coupon_code'])->first();
 
                 if ($coupon && $coupon->isValid() && $coupon->canBeUsedByClient($client->id)) {
-                    $discountAmount = $coupon->calculateDiscount($totalAmount);
+                    $discountAmount = $coupon->calculateDiscount($productsTotal);
 
                     if ($discountAmount > 0) {
                         $couponId = $coupon->id;
@@ -102,7 +103,7 @@ class OrderController extends BaseController
                         ->first();
 
                     if ($automaticCoupon && $automaticCoupon->isValid()) {
-                        $discountAmount = $automaticCoupon->calculateDiscount($totalAmount);
+                        $discountAmount = $automaticCoupon->calculateDiscount($productsTotal);
 
                         if ($discountAmount > 0) {
                             $couponId = $automaticCoupon->id;

@@ -19,7 +19,7 @@ class ValidateCouponRequest extends FormRequest
         return [
             'code' => 'required|string|exists:coupons,code',
             'order_amount' => 'required|numeric|min:0',
-            'client_id' => 'required|integer|exists:clients,id',
+            'phone' => 'required|string',
         ];
     }
 
@@ -38,13 +38,9 @@ class ValidateCouponRequest extends FormRequest
                 'ar' => 'قيمة الطلب مطلوبة',
                 'en' => 'Order amount is required'
             ],
-            'client_id.required' => [
-                'ar' => 'معرف العميل مطلوب',
-                'en' => 'Client ID is required'
-            ],
-            'client_id.exists' => [
-                'ar' => 'العميل غير موجود',
-                'en' => 'Client not found'
+            'phone.required' => [
+                'ar' => 'رقم الهاتف مطلوب',
+                'en' => 'Phone number is required'
             ],
         ];
     }

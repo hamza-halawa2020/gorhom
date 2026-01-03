@@ -73,8 +73,12 @@ class CouponController extends BaseController
             return $this->error('The coupon is invalid or has expired.', 400);
         }
 
-        if (! $coupon->canBeUsedByClient($data['client_id'])) {
-            return $this->error('You have used this coupon the maximum number of times.', 400);
+        $client = Client::where('phone', $data['phone'])->first();
+
+        if ($client) {
+            if (! $coupon->canBeUsedByClient($client->id)) {
+                return $this->error('You have used this coupon the maximum number of times.', 400);
+            }
         }
 
         $discount = $coupon->calculateDiscount($data['order_amount']);

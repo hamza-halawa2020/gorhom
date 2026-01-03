@@ -63,7 +63,7 @@ class CouponController extends BaseController
         return $this->success(null, 'Coupon deleted successfully', 204);
     }
 
-    public function validate(ValidateCouponRequest $request)
+    public function validateCoupon(ValidateCouponRequest $request)
     {
         $data = $request->validated();
 
@@ -83,11 +83,7 @@ class CouponController extends BaseController
             return $this->error('The order amount is less than the minimum required to use this coupon.', 400);
         }
 
-        return $this->success([
-            'coupon' => new CouponResource($coupon),
-            'discount_amount' => $discount,
-            'final_amount' => $data['order_amount'] - $discount,
-        ], 'The coupon is valid for use.');
+        return $this->success(['coupon' => new CouponResource($coupon),'discount_amount' => $discount,'final_amount' => $data['order_amount'] - $discount,], 'The coupon is valid for use.');
     }
 
     public function getAutomaticCoupon()

@@ -49,6 +49,7 @@ Route::apiResource('views', ViewController::class)->only(['index', 'show', 'dest
 // coupons
 Route::apiResource('coupons', CouponController::class);
 Route::post('coupons/validate', [CouponController::class, 'validate']);
+Route::get('check-first-order', [CouponController::class, 'checkFirstOrder']);
 Route::get('coupons/automatic/first-order', [CouponController::class, 'getAutomaticCoupon']);
 
 // clients

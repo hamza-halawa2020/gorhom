@@ -17,7 +17,7 @@ class CouponController extends BaseController
 {
     public function __construct()
     {
-        $this->middleware('auth:sanctum')->only('store', 'update', 'destroy');
+        $this->middleware('auth:sanctum')->only('index','show','store','update','destroy');
         $this->middleware('limitReq');
     }
 
@@ -122,5 +122,37 @@ class CouponController extends BaseController
         }
 
         return $this->success(new CouponResource($coupon), 'An automatic coupon is available for the first order.');
+    }
+
+    public function checkFirstOrder()
+    {
+        $phone = request()->get('phone');
+
+        if (! $phone) {
+            return $this->error('Phone number is required.', 400);
+        }
+
+        $client = Client::where('phone', $phone)->first();
+        $isFirstOrder = true;
+
+        if ($client) {
+            $hasOrders = Order::where('client_id', $client->id)->where('status', 'completed')->exists();
+            
+            if ($hasOrders) {
+                $isFirstOrder = false;
+            }
+        }
+
+        if ($isFirstOrder) {
+            $coupon = Coupon::where('is_automatic', true)->where('automatic_type', 'first_order')->where('is_active', true)->first();
+
+            if ($coupon && $coupon->isValid()) {
+                return $this->success(['is_first_order' => true,'coupon' => new CouponResource($coupon)], 'This is the first order and a coupon is available.');
+            }
+            
+            return $this->success(['is_first_order' => true,'coupon' => null], 'This is the first order but no automatic coupon is available.');
+        }
+
+        return $this->success(['is_first_order' => false,'coupon' => null], 'This is not the first order.');
     }
 }

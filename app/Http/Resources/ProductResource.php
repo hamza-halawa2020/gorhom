@@ -23,15 +23,14 @@ class ProductResource extends JsonResource
                 'slug' => $this->slug,
                 'description' => $this->getTranslations('description'),
                 'image' => $this->image,
-                'price_before_discount' => $this->price_before_discount,
-                'discount' => $this->discount,
-                'price_after_discount' => $this->price_after_discount,
                 'category' => new CategoryResource($this->whenLoaded('category')),
+                'sizes' => ProductSizeResource::collection($this->whenLoaded('sizes')),
                 'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
                 'createdBy' => new UserResource($this->whenLoaded('createdBy')),
                 'files' => FileResource::collection($this->whenLoaded('files')),
                 'views' => ViewResource::collection($this->whenLoaded('views')),
                 'created_at' => $this->created_at,
+                'deleted_at' => $this->deleted_at,
             ];
         }
 
@@ -41,15 +40,14 @@ class ProductResource extends JsonResource
             'slug' => $this->slug,
             'description' => $this->getTranslation('description', $locale),
             'image' => $this->image,
-            'price_before_discount' => $this->price_before_discount,
-            'discount' => $this->discount,
-            'price_after_discount' => $this->price_after_discount,
             'category' => new CategoryResource($this->whenLoaded('category')),
+            'sizes' => ProductSizeResource::collection($this->whenLoaded('sizes')),
             'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
             'createdBy' => new UserResource($this->whenLoaded('createdBy')),
             'files' => FileResource::collection($this->whenLoaded('files')),
             'views' => ViewResource::collection($this->whenLoaded('views')),
             'created_at' => $this->created_at,
+            'deleted_at' => $this->deleted_at,
         ];
     }
 }

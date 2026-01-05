@@ -11,6 +11,7 @@ use App\Models\Coupon;
 use App\Models\CouponUsage;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\ProductSize;
 use App\Models\Shipment;
 use App\Traits\ApiResponse;
 use Illuminate\Routing\Controller as BaseController;
@@ -45,7 +46,7 @@ class OrderController extends BaseController
 
             $client = Client::where('phone', $data['phone'])->first();
 
-            if (! $client) {
+            if (!$client) {
                 $client = Client::create([
                     'name' => $data['name'],
                     'phone' => $data['phone'],
@@ -63,14 +64,31 @@ class OrderController extends BaseController
 
             foreach ($data['items'] as $item) {
                 $product = Product::findOrFail($item['product_id']);
-                $price = $product->price_after_discount;
+                
+                if (empty($item['product_size_id'])) {
+                    throw new \Exception('Product size is required');
+                }
+                
+                $size = ProductSize::findOrFail($item['product_size_id']);
+                
+                if ($size->product_id !== $product->id) {
+                    throw new \Exception('Size does not belong to this product');
+                }
+
+                if ($size->stock < $item['quantity']) {
+                    throw new \Exception("Insufficient stock for size '{$size->size}'. Available: {$size->stock}, Requested: {$item['quantity']}");
+                }
+                
+                $price = $size->price_after_discount ?? $size->price;
                 $subtotal = $price * $item['quantity'];
                 $totalAmount += $subtotal;
 
                 $orderItems[] = [
                     'product_id' => $product->id,
+                    'product_size_id' => $size->id,
                     'quantity' => $item['quantity'],
                     'price' => $price,
+                    'size_name' => $size->size,
                 ];
             }
 
@@ -82,7 +100,7 @@ class OrderController extends BaseController
             $couponId = null;
             $coupon = null;
 
-            if (! empty($data['coupon_code'])) {
+            if (!empty($data['coupon_code'])) {
                 $coupon = Coupon::where('code', $data['coupon_code'])->first();
 
                 if ($coupon && $coupon->isValid() && $coupon->canBeUsedByClient($client->id)) {
@@ -93,10 +111,9 @@ class OrderController extends BaseController
                     }
                 }
             } else {
-                $hasPreviousOrders = Order::where('client_id', $client->id)
-                    ->exists();
+                $hasPreviousOrders = Order::where('client_id', $client->id)->exists();
 
-                if (! $hasPreviousOrders) {
+                if (!$hasPreviousOrders) {
                     $automaticCoupon = Coupon::where('is_automatic', true)
                         ->where('automatic_type', 'first_order')
                         ->where('is_active', true)
@@ -130,6 +147,9 @@ class OrderController extends BaseController
 
             foreach ($orderItems as $item) {
                 $order->items()->create($item);
+                
+                $size = ProductSize::find($item['product_size_id']);
+                $size->decrement('stock', $item['quantity']);
             }
 
             if ($coupon && $discountAmount > 0) {
@@ -145,7 +165,7 @@ class OrderController extends BaseController
 
             DB::commit();
 
-            $order->load(['client', 'shipment', 'coupon', 'items.product']);
+            $order->load(['client', 'shipment', 'coupon', 'items.product', 'items.size', 'statusChngedBy']);
 
             return $this->success(new OrderResource($order), 'Order created successfully.', 201);
 
@@ -158,35 +178,65 @@ class OrderController extends BaseController
 
     public function show(Order $order)
     {
-        $order->load(['client', 'shipment', 'coupon', 'items.product', 'statusChngedBy']);
+        $order->load(['client', 'shipment', 'coupon', 'items.product', 'items.size', 'statusChngedBy']);
 
         return $this->success(new OrderResource($order));
     }
 
     public function updateStatus(UpdateOrderStatusRequest $request, Order $order)
     {
-        $data = $request->validated();
+        try {
+            DB::beginTransaction();
 
-        $order->update([
-            'status' => $data['status'],
-            'status_chnged_by' => Auth::id(),
-        ]);
+            $data = $request->validated();
+            $oldStatus = $order->status;
+            $newStatus = $data['status'];
 
-        $order->load(['client', 'shipment', 'coupon', 'items.product', 'statusChngedBy']);
+            if ($newStatus === 'cancelled' && $oldStatus !== 'cancelled') {
+                foreach ($order->items as $item) {
+                    $size = ProductSize::find($item->product_size_id);
+                    if ($size) {
+                        $size->increment('stock', $item->quantity);
+                    }
+                }
+            }
+            elseif ($oldStatus === 'cancelled' && $newStatus !== 'cancelled') {
+                foreach ($order->items as $item) {
+                    $size = ProductSize::find($item->product_size_id);
+                    if ($size) {
+                        $size->decrement('stock', $item->quantity);
+                    }
+                }
+            }
 
-        return $this->success(new OrderResource($order), 'Order status updated successfully.');
+            $order->update([
+                'status' => $newStatus,
+                'status_chnged_by' => Auth::id(),
+            ]);
+
+            DB::commit();
+
+            $order->load(['client', 'shipment', 'coupon', 'items.product', 'items.size', 'statusChngedBy']);
+
+            return $this->success(new OrderResource($order), 'Order status updated successfully.');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return $this->error('An error occurred while updating order status: '.$e->getMessage(), 500);
+        }
     }
 
     public function getClientOrders($phone)
     {
         $client = Client::where('phone', $phone)->first();
 
-        if (! $client) {
+        if (!$client) {
             return $this->error('Client not found.', 404);
         }
 
         $orders = Order::where('client_id', $client->id)
-            ->with(['shipment', 'coupon', 'items.product'])
+            ->with(['shipment', 'coupon', 'items.product', 'items.size'])
             ->orderBy('created_at', 'desc')
             ->get();
 

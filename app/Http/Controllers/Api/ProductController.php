@@ -27,7 +27,7 @@ class ProductController extends BaseController
 
     public function index()
     {
-        $products = Product::with(['files', 'views','category'])->get();
+        $products = Product::with(['files', 'views','category', 'sizes'])->get();
 
         return $this->success(ProductResource::collection($products));
     }
@@ -60,14 +60,27 @@ class ProductController extends BaseController
             }
         }
 
-        return $this->success(new ProductResource($product->load('files')), 'Product created', 201);
+       
+        if ($request->has('sizes') && is_array($request->input('sizes'))) {
+            foreach ($request->input('sizes') as $size) {
+                $product->sizes()->create([
+                    'size' => $size['size'],
+                    'price_before_discount' => $size['price_before_discount'],
+                    'discount' => $size['discount'],
+                    'price_after_discount' => $size['price_after_discount'],
+                    'stock' => $size['stock'],
+                ]);
+            }
+        }
+
+        return $this->success(new ProductResource($product->load('files', 'sizes')), 'Product created', 201);
     }
 
     public function show(Product $product)
     {
         $product->recordView();
 
-        $product->load(['files','views','category','reviews' => function ($q) {
+        $product->load(['files','views','category','sizes','reviews' => function ($q) {
             $q->where('status', 'approved');
         }]);
 
@@ -101,7 +114,21 @@ class ProductController extends BaseController
             }
         }
 
-        return $this->success(new ProductResource($product->load('files')), 'Product updated');
+        if ($request->has('sizes') && is_array($request->input('sizes'))) {
+            $product->sizes()->delete();
+            
+            foreach ($request->input('sizes') as $size) {
+                $product->sizes()->create([
+                    'size' => $size['size'],
+                    'price_after_discount' => $size['price_after_discount'],
+                    'discount' => $size['discount'],
+                    'price_before_discount' => $size['price_before_discount'],
+                    'stock' => $size['stock'],
+                ]);
+            }
+        }
+
+        return $this->success(new ProductResource($product->load('files', 'sizes')), 'Product updated');
     }
 
     public function destroy(Product $product)

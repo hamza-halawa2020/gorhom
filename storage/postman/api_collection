@@ -288,7 +288,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user56@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user2@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -351,7 +351,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user53@example.com\",\n    \"password\": \"password sample value\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"email\": \"user78@example.com\",\n    \"password\": \"password sample value\"\n}",
                             "options": []
                         }
                     }
@@ -446,7 +446,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 93,\n    \"discount\": 30,\n    \"price_after_discount\": 31,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": [],\n    \"sizes\": [],\n    \"sizes.size\": [],\n    \"sizes.price_before_discount\": [],\n    \"sizes.discount\": [],\n    \"sizes.price_after_discount\": [],\n    \"sizes.stock\": []\n}",
                             "options": []
                         }
                     }
@@ -509,7 +509,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"price_before_discount\": 49,\n    \"discount\": 24,\n    \"price_after_discount\": 86,\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": []\n}",
+                            "raw": "{\n    \"title\": [],\n    \"description\": [],\n    \"category_id\": \"category_id sample value\",\n    \"image\": \"image sample value\",\n    \"files\": [],\n    \"sizes\": [],\n    \"sizes.size\": [],\n    \"sizes.price_before_discount\": [],\n    \"sizes.discount\": [],\n    \"sizes.price_after_discount\": [],\n    \"sizes.stock\": []\n}",
                             "options": []
                         }
                     }
@@ -1023,6 +1023,40 @@
             "name": "reviews",
             "item": [
                 {
+                    "name": "accepted",
+                    "item": [
+                        {
+                            "name": "[GET] api/reviews/accepted",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{base_url}}/api/reviews/accepted",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "api",
+                                        "reviews",
+                                        "accepted"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "[GET] api/reviews",
                     "request": {
                         "method": "GET",
@@ -1078,7 +1112,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"review\": \"review sample value\",\n    \"name\": \"name sample value\",\n    \"rate\": 3,\n    \"product_id\": \"product_id sample value\"\n}",
+                            "raw": "{\n    \"review\": \"review sample value\",\n    \"name\": \"name sample value\",\n    \"rate\": 0,\n    \"product_id\": \"product_id sample value\"\n}",
                             "options": []
                         }
                     }
@@ -1141,7 +1175,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"review\": \"review sample value\",\n    \"status\": \"status sample value\",\n    \"name\": \"name sample value\",\n    \"rate\": 5,\n    \"product_id\": \"product_id sample value\"\n}",
+                            "raw": "{\n    \"review\": \"review sample value\",\n    \"status\": \"status sample value\",\n    \"name\": \"name sample value\",\n    \"rate\": 0,\n    \"product_id\": \"product_id sample value\"\n}",
                             "options": []
                         }
                     }
@@ -1327,7 +1361,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"code\": \"code sample value\",\n    \"type\": \"type sample value\",\n    \"value\": 48,\n    \"max_discount\": 49,\n    \"min_order_amount\": 82,\n    \"is_automatic\": false,\n    \"automatic_type\": \"automatic_type sample value\",\n    \"usage_limit\": \"usage_limit sample value\",\n    \"usage_per_user\": \"usage_per_user sample value\",\n    \"is_active\": false,\n    \"starts_at\": \"starts_at sample value\",\n    \"expires_at\": \"expires_at sample value\"\n}",
+                            "raw": "{\n    \"code\": \"code sample value\",\n    \"type\": \"type sample value\",\n    \"value\": 1,\n    \"max_discount\": 30,\n    \"min_order_amount\": 51,\n    \"is_automatic\": true,\n    \"automatic_type\": \"automatic_type sample value\",\n    \"usage_limit\": \"usage_limit sample value\",\n    \"usage_per_user\": \"usage_per_user sample value\",\n    \"is_active\": true,\n    \"starts_at\": \"starts_at sample value\",\n    \"expires_at\": \"expires_at sample value\"\n}",
                             "options": []
                         }
                     }
@@ -1423,14 +1457,90 @@
                             ]
                         }
                     }
-                },
+                }
+            ]
+        },
+        {
+            "name": "validate-coupon",
+            "item": [
                 {
-                    "name": "validate",
+                    "name": "[POST] api/validate-coupon",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/validate-coupon",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "validate-coupon"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"code\": \"code sample value\",\n    \"order_amount\": 39,\n    \"phone\": \"phone sample value\"\n}",
+                            "options": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "check-first-order",
+            "item": [
+                {
+                    "name": "[GET] api/check-first-order",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/check-first-order",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "check-first-order"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "automatic",
+            "item": [
+                {
+                    "name": "first-order",
                     "item": [
                         {
-                            "name": "[POST] api/coupons/validate",
+                            "name": "[GET] api/automatic/first-order",
                             "request": {
-                                "method": "POST",
+                                "method": "GET",
                                 "header": [
                                     {
                                         "key": "Accept",
@@ -1444,62 +1554,17 @@
                                     }
                                 ],
                                 "url": {
-                                    "raw": "{{base_url}}/api/coupons/validate",
+                                    "raw": "{{base_url}}/api/automatic/first-order",
                                     "host": [
                                         "{{base_url}}"
                                     ],
                                     "path": [
                                         "api",
-                                        "coupons",
-                                        "validate"
+                                        "automatic",
+                                        "first-order"
                                     ]
-                                },
-                                "body": {
-                                    "mode": "raw",
-                                    "raw": "{\n    \"code\": \"code sample value\",\n    \"order_amount\": 27,\n    \"client_id\": \"client_id sample value\"\n}",
-                                    "options": []
                                 }
                             }
-                        }
-                    ]
-                },
-                {
-                    "name": "automatic",
-                    "item": [
-                        {
-                            "name": "first-order",
-                            "item": [
-                                {
-                                    "name": "[GET] api/coupons/automatic/first-order",
-                                    "request": {
-                                        "method": "GET",
-                                        "header": [
-                                            {
-                                                "key": "Accept",
-                                                "value": "application/json",
-                                                "type": "text"
-                                            },
-                                            {
-                                                "key": "Content-Type",
-                                                "value": "application/json",
-                                                "type": "text"
-                                            }
-                                        ],
-                                        "url": {
-                                            "raw": "{{base_url}}/api/coupons/automatic/first-order",
-                                            "host": [
-                                                "{{base_url}}"
-                                            ],
-                                            "path": [
-                                                "api",
-                                                "coupons",
-                                                "automatic",
-                                                "first-order"
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
                         }
                     ]
                 }
@@ -1564,7 +1629,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"phone\": \"phone sample value\",\n    \"email\": \"user41@example.com\"\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"phone\": \"phone sample value\",\n    \"email\": \"user55@example.com\"\n}",
                             "options": []
                         }
                     }
@@ -1797,7 +1862,7 @@
                         },
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"name sample value\",\n    \"phone\": \"phone sample value\",\n    \"email\": \"user98@example.com\",\n    \"address\": \"address sample value\",\n    \"shipment_id\": \"shipment_id sample value\",\n    \"coupon_code\": \"coupon_code sample value\",\n    \"payment_method\": \"payment_method sample value\",\n    \"items\": [],\n    \"items.product_id\": [],\n    \"items.quantity\": []\n}",
+                            "raw": "{\n    \"name\": \"name sample value\",\n    \"phone\": \"phone sample value\",\n    \"email\": \"user45@example.com\",\n    \"address\": \"address sample value\",\n    \"shipment_id\": \"shipment_id sample value\",\n    \"coupon_code\": \"coupon_code sample value\",\n    \"payment_method\": \"payment_method sample value\",\n    \"items\": [],\n    \"items.product_id\": [],\n    \"items.product_size_id\": [],\n    \"items.quantity\": []\n}",
                             "options": []
                         }
                     }
